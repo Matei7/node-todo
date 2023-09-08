@@ -1,6 +1,6 @@
 # node-todo
 A simple todo app using nodejs and mongodb
-``` 
+```
 ## Installation
 ```bash
 npm install
