@@ -8,7 +8,6 @@ const logErrorMiddleware = ( err, req, res, next ) => {
 }
 
 const returnErrorMiddleware = ( err, req, res, next ) => {
-	console.log( err);
 	res.status( err.status || 500 ).send( err.message )
 }
 

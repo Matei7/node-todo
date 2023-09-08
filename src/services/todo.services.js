@@ -46,8 +46,10 @@ const createTodo = async ( todoData ) => {
 
 const updateTodo = async ( id, todoData ) => {
 	try {
+
 		const todo = await TodoDA.updateTodo( id, todoData );
-		const {_id, title, description, status} = todo;
+		const {_id, title, description, status} = await TodoDA.findById( id );
+
 		return {
 			_id,
 			title,
