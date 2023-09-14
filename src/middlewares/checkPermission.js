@@ -1,4 +1,4 @@
-const {Api400Error} = require( '../utils/error' )
+const {Api400Error, Api403Error} = require( '../utils/error' )
 const logger = require( '../utils/logger' )
 
 const {verifyJWT} = require( '../utils/auth' );
@@ -19,7 +19,7 @@ module.exports = permission => async ( req, res, next ) => {
 
 			if ( ! permission.includes( role ) ) {
 				logger.error( `User ${userId} tried to access a resource without permission` )
-				next( new Api400Error( 'You do not have permission to access this resource' ) )
+				next( new Api403Error( 'You do not have permission to access this resource' ) )
 			} else {
 				next()
 			}

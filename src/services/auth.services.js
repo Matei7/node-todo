@@ -29,11 +29,12 @@ const loginUser = async ( {
 		return token;
 	} catch ( error ) {
 		logger.error( `Failed logging in user: ${email}` );
-		throw new Api500Error( 'Emai or password not matching.' );
+		throw new Api500Error( 'Email or password not matching.' );
 	}
 };
 const registerUser = async ( {email, password, username, role} ) => {
 	try {
+
 		await checkDuplicateEmail( email )
 		const encryptedPassword = await encryptPassword( password );
 		const user = await UserDA.insertUser( {

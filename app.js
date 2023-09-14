@@ -11,10 +11,11 @@ const {
 } = require( './src/routes' );
 
 app.use( bodyParser.json() );
-app.use( logErrorMiddleware );
-app.use( returnErrorMiddleware );
+
 app.use( authRoutes );
 app.use( todoRoutes );
+app.use( logErrorMiddleware );
+app.use( returnErrorMiddleware );
 
 
 module.exports = app;
