@@ -2,6 +2,7 @@ const {authServices} = require( '../services' );
 const handleAsync = require( '../utils/handleAsync' );
 const logger = require( '../utils/logger' );
 
+
 const register = handleAsync( async ( req, res, next ) => {
 	const {username, email, password, role} = req.body;
 	const user = await authServices.registerUser( {
